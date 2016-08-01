@@ -129,10 +129,10 @@ def iterate_minibatches(users, folder, batch_size):
 
 def main():
     parser = argparse.ArgumentParser(description='run VGG 19 learning', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('--weights', help='VGG 19 initial weights path', default='vgg19.pkl')
-    parser.add_argument('--folder', help='images folder path', required=True)
-    parser.add_argument('--targets', help='targets csv file path', required=True)
-    parser.add_argument('--batch_size', help='batch size', default='32')
+    parser.add_argument('--weights', help='VGG 19 initial weights path', default='vgg19.pkl', type=str)
+    parser.add_argument('--folder', help='images folder path', required=True, type=str)
+    parser.add_argument('--targets', help='targets csv file path', required=True, type=str)
+    parser.add_argument('--batch_size', help='batch size', default=32, type=int)
     args = parser.parse_args()
     
     users = pd.read_csv(args.targets, sep='\t', header=None, index_col=None).values
